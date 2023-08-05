@@ -1,13 +1,13 @@
 import palette from './palette';
 
 export const Typography = {
-	fontFamily: ['Lato'].join(','),
+	fontFamily: ['Rubik'].join(','),
 	htmlFontSize: 16,
 	'@media (min-width:1921px)': { htmlFontSize: 18 },
 
 	h1: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 500,
 		fontSize: '4.5rem',
 		letterSpacing: '-0.24px',
@@ -15,7 +15,7 @@ export const Typography = {
 	},
 	h2: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 500,
 		fontSize: '3.75rem',
 		letterSpacing: '-0.24px',
@@ -23,7 +23,7 @@ export const Typography = {
 	},
 	h3: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 500,
 		fontSize: '2.25rem',
 		letterSpacing: '-0.06px',
@@ -31,7 +31,7 @@ export const Typography = {
 	},
 	h4: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 600,
 		fontSize: '1.875rem',
 		letterSpacing: '-0.06px',
@@ -39,7 +39,7 @@ export const Typography = {
 	},
 	h5: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 600,
 		fontSize: '1.5rem',
 		letterSpacing: '-0.05px',
@@ -47,7 +47,7 @@ export const Typography = {
 	},
 	h6: {
 		color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontWeight: 600,
 		fontSize: '1.125rem',
 		letterSpacing: '-0.05px',
@@ -55,7 +55,7 @@ export const Typography = {
 	},
 	subtitle1: {
 		//color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '1.125rem',
 		fontWeight: 'normal',
 		letterSpacing: '-0.04px',
@@ -63,7 +63,7 @@ export const Typography = {
 	},
 	subtitle2: {
 		//color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '1.375rem',
 		fontWeight: 'normal',
 		letterSpacing: '-0.04px',
@@ -71,40 +71,40 @@ export const Typography = {
 	},
 	body1: {
 		//color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '1rem',
 		fontWeight: 'normal',
 		letterSpacing: '-0.04px',
 		lineHeight: '1.5rem',
 	},
 	body2: {
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '0.875rem',
 		fontWeight: 'normal',
 		letterSpacing: '-0.04px',
 		lineHeight: '1.25rem',
 	},
 	body3: {
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '0.75rem',
 		fontWeight: 'normal',
 		letterSpacing: '-0.04px',
 		lineHeight: '1.125rem',
 	},
 	button: {
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '14px',
 	},
 	caption: {
 		color: palette.text.secondary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '11px',
 		letterSpacing: '0.33px',
 		lineHeight: '13px',
 	},
 	overline: {
 		//color: palette.text.primary,
-		fontFamily: 'Lato',
+		fontFamily: 'Rubik',
 		fontSize: '11px',
 		fontWeight: 500,
 		letterSpacing: '0.33px',
