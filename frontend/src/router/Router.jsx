@@ -1,33 +1,37 @@
-import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-import PrivateRoute from '@components/PrivateRoute';
+import { Routes, Route } from 'react-router-dom';
+// import PrivateRoute from '@components/PrivateRoute';
 
 export function ApplicationRouter(props) {
     return (
         <BrowserRouter basename="/">
-            <Switch>
+            <Routes>
                 {props.routes.map((route, index) => (
+                    // <Route
+                    //     key={index}
+                    //     path={route.path}
+                    //     exact={route.exact}
+                    //     element={
+                    //         <PrivateRoute
+                    //             redirectTo={'/login'}
+                    //             private={route.private}
+                    //             orRender={
+                    //                 <route.layout {...props}>
+                    //                     <route.component {...props} />
+                    //                 </route.layout>
+                    //             }
+                    //         />
+                    //     }
+                    // />
                     <Route
                         key={index}
                         path={route.path}
                         exact={route.exact}
-                        component={
-                            <PrivateRoute
-                                // redirectTo={'/login'}
-                                // private={route.private}
-                                private={false}
-                                orRender={
-                                    <route.layout {...props}>
-                                        <route.component {...props} />
-                                    </route.layout>
-                                }
-                            />
-                        }
+                        element={route.component}
                     />
                 ))}
-            </Switch>
+            </Routes>
         </BrowserRouter>
     );
 }

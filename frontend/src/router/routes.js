@@ -1,25 +1,38 @@
-// eslint-disable-next-line no-unused-vars
-import { Redirect } from 'react-router-dom';
-
-import { BaseLayout } from '@layouts';
+import { BaseLayout } from '@layouts/Base';
 // import { LoginLayout } from '@layouts';
 // import { LandingLayout } from '@layouts';
 
 // import UserPage from '@views/UserPage';
+import Dashboard from '@views/Dashboard';
+import NewOrder from '@views/NewOrder'
 
 export const Routes = [
 	{
 		path: '/',
 		exact: true,
 		layout: BaseLayout,
-		private: true,
-		component: () => <Redirect to="/dashboard" />,
+		private: false,
+		component: <Dashboard/>,
 	},
 	{
-		path: '/user',
+		path: '/dashboard',
 		exact: true,
-		// layout: LoginLayout, ::TODO
+		layout: BaseLayout,
 		private: false,
-		// component: UserPage, ::TODO
+		component: <Dashboard/>,
+	},
+	// {
+	// 	path: '/user',
+	// 	exact: true,
+	// 	// layout: LoginLayout, ::TODO
+	// 	private: false,
+	// 	// component: UserPage, ::TODO
+	// },
+	{
+		path: '/new-order',
+		exact: true,
+		layout: BaseLayout,
+		private: false,
+		component: <NewOrder/>,
 	},
 ];

@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { userSaga } from '@store/sagas/user.saga';
 import { persistStore } from 'redux-persist';
 import { all } from 'redux-saga/effects';
+import rootReducer from '@store/reducers';
 
 export let persistor = '';
 

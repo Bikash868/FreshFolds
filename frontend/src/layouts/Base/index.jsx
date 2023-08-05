@@ -8,4 +8,4 @@ BaseLayout.propTypes = {
     children: PropTypes.children,
 };
 
-export default BaseLayout;
+export default BaseLayout;  

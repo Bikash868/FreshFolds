@@ -43,7 +43,7 @@ module.exports = {
 			'@': path.resolve(__dirname, 'src/'),
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@layouts': path.resolve(__dirname, 'src/layouts'),
-			// '@router': path.resolve(__dirname, 'src/router'),
+			'@router': path.resolve(__dirname, 'src/router'),
 			// '@routes': path.resolve(__dirname, 'src/routes'),
 			'@store': path.resolve(__dirname, 'src/store'),
 			'@styles': path.resolve(__dirname, 'src/styles'),
