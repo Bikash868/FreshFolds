@@ -20,7 +20,8 @@ const UserReducer = (state = initialState, action) => {
 					break;
 			}
 		} catch (err) {
-			console.log(err);
+			// console.error(err);
+			
 		}
 	});
 };
