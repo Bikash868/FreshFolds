@@ -6,40 +6,40 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export const primaryMenuItems = [{
-    "label": "Dashboard",
-    "icon": <DashboardIcon />,
-    "route": '/dashboard'
-  },
-  {
-    "label": "Customers",
-    "icon": <PeopleIcon />,
-    "route": '/customers'
-  },
-  {
-    "label": "Orders",
-    "icon": <ShoppingCartIcon />,
-    "route": '/new-order'
-  },
-  {
-    "label": "Filter",
-    "icon": <LayersIcon />,
-    "route": '/apply-filter'
-  },
+  "label": "Dashboard",
+  "icon": <DashboardIcon />,
+  "route": '/dashboard'
+},
+{
+  "label": "Customers",
+  "icon": <PeopleIcon />,
+  "route": '/customers'
+},
+{
+  "label": "Orders",
+  "icon": <ShoppingCartIcon />,
+  "route": '/new-order'
+},
+{
+  "label": "Filter",
+  "icon": <LayersIcon />,
+  "route": '/apply-filter'
+},
 ]
 
 export const secondaryMenuItems = [{
-    "label": "Current month",
-    "icon": <AssignmentIcon />,
-    "route": '/current-month-report'
-  },
-  {
-    "label": "Last quarter",
-    "icon": <AssignmentIcon />,
-    "route": '/last-quarter-report'
-  },
-  {
-    "label": "Year-end sale",
-    "icon": <AssignmentIcon />,
-    "route": '/year-end-report'
-  },
+  "label": "Current month",
+  "icon": <AssignmentIcon />,
+  "route": '/report'
+},
+{
+  "label": "Last quarter",
+  "icon": <AssignmentIcon />,
+  "route": '/report'
+},
+{
+  "label": "Year-end sale",
+  "icon": <AssignmentIcon />,
+  "route": '/report'
+},
 ]
