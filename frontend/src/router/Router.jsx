@@ -28,7 +28,11 @@ export function ApplicationRouter(props) {
                         key={index}
                         path={route.path}
                         exact={route.exact}
-                        element={route.component}
+                        element={
+                            <route.layout {...props}>
+                                {route.component}
+                            </route.layout>
+                        }
                     />
                 ))}
             </Routes>
