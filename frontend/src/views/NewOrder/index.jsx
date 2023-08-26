@@ -1,7 +1,10 @@
+import React from 'react';
+import { Box } from '@mui/material';
+
 export default function NewOrder() {
     return (
-        <div>
+        <Box sx={{ background: 'yellow' }}>
             New Order page
-        </div>
+        </Box>
     );
 }
