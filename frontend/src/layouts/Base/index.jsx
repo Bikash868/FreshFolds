@@ -94,7 +94,7 @@ export function BaseLayout(props) {
                 </Drawer>
                 <StyledMainComponent>
                     <Toolbar />
-                    <StyledContainer maxWidth={false} >
+                    <StyledContainer maxWidth={false}>
                         {props.children}
                     </StyledContainer>
                     <Copyright />
