@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) =>
     createStyles({
         panelSummary: {
             flexDirection: "row-reverse",
-            paddingLeft: "0px",
+            paddingLeft: "1rem",
         },
         heading: {
             fontSize: theme.typography.pxToRem(20),
             fontWeight: theme.typography.fontWeightRegular,
-            marginLeft: '1rem'
+            marginLeft: '0.5rem !important',
         },
         innerMenuItem: {
             paddingLeft: "32px"
@@ -35,7 +35,7 @@ export const StyledAccordion = (props) => {
     const classes = useStyles();
 
     return (
-        <Accordion style={{ boxShadow: 'none', background: 'transparent', borderRadius: '0' }}>
+        <Accordion style={{ boxShadow: 'none', background: 'transparent', borderRadius: '0'}} defaultExpanded={props.defaultExpanded}>
             <AccordionSummaryWrapper
                 className={classes.panelSummary}
                 expandIcon={<ExpandMoreIcon />}
@@ -43,7 +43,10 @@ export const StyledAccordion = (props) => {
                 id="panel1a-header"
                 noBorder={props?.noBorder || false}
             >
-                <Typography className={classes.heading}>{props.title}</Typography>
+                <div style={{display:'flex',justifyContent: props.rightElement ? 'space-between' : 'start', width:'100%'}}>
+                    <Typography className={classes.heading}>{props.title}</Typography>
+                    {props.rightElement ? props.rightElement: null}
+                </div>
             </AccordionSummaryWrapper>
             <AccordionDetails>
                 <Grid container direction="column">
@@ -57,5 +60,7 @@ export const StyledAccordion = (props) => {
 StyledAccordion.propTypes = {
     title: PropTypes.string,
     noBorder: PropTypes.bool,
-    children: PropTypes.children
+    children: PropTypes.children,
+    defaultExpanded: PropTypes.bool,
+    rightElement: PropTypes.node
 }

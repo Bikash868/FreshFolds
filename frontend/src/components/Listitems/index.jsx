@@ -1,14 +1,19 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
+
+import { StyledListItemIcon } from './elements';
+import { StyledListItemText } from './elements';
+import { StyledListItemButton } from './elements';
 
 
 export const ListItems = ({ subheader = "", items }) => {
   const navigate = useNavigate();
+  const route = window.location.pathname;
 
   const handleMenuItemClick = (route) => {
     navigate(route);
@@ -25,12 +30,12 @@ export const ListItems = ({ subheader = "", items }) => {
       {
         items.map(item => {
           return (
-            <ListItemButton key={item.label} onClick={() => handleMenuItemClick(item.route)}>
-              <ListItemIcon>
+            <StyledListItemButton key={item.label} onClick={() => handleMenuItemClick(item.route)} active={item.route === route}>
+              <StyledListItemIcon active={item.route === route}>
                 {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
+              </StyledListItemIcon>
+              <StyledListItemText primary={item.label} active={item.route === route}/>
+            </StyledListItemButton>
           )
         })
       }

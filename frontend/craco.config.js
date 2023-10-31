@@ -49,7 +49,7 @@ module.exports = {
 			'@styles': path.resolve(__dirname, 'src/styles'),
 			'@utils': path.resolve(__dirname, 'src/utils'),
 			'@views': path.resolve(__dirname, 'src/views'),
-			// '@constants': path.resolve(__dirname, 'src/constants'),
+			'@assets': path.resolve(__dirname, 'src/assets'),
 			// '@lib': path.resolve(__dirname, 'src/lib'),
 		},
 	},
