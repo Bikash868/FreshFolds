@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="34.98" height="21.875" viewBox="0 0 34.98 21.875">
-  <g id="_3533396_attraction_customer_customer_attraction_inbound_magnet_icon" data-name="3533396_attraction_customer_customer attraction_inbound_magnet_icon" transform="translate(-238.749 -316.131)">
-    <path id="Path_228948" data-name="Path 228948" d="M267.2,320.61a3.729,3.729,0,1,0,3.729-3.729A3.729,3.729,0,0,0,267.2,320.61Z" transform="translate(-24.121)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-    <path id="Path_228949" data-name="Path 228949" d="M251.778,387.782a7.278,7.278,0,0,0-12.279,5.256v1.48c0,.291.29.414.578.414h7.353A9.043,9.043,0,0,1,251.778,387.782Z" transform="translate(0 -60.002)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-    <circle id="Ellipse_373" data-name="Ellipse 373" cx="3.729" cy="3.729" r="3.729" transform="translate(262.033 316.881)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-    <path id="Path_228950" data-name="Path 228950" d="M327.641,411.265a7.132,7.132,0,0,0-3.8-5.887s0,.016,0,.018a7.231,7.231,0,0,0-6.783,0s0-.028,0-.031a7.154,7.154,0,0,0-3.821,5.9h0c-.01.259.031.354.031.509v1.482c0,.289.187.337.476.337h13.39c.289,0,.483-.048.483-.337v-1.482c0-.154.033-.25.024-.509h0Z" transform="translate(-64.2 -76.336)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-    <path id="Path_228951" data-name="Path 228951" d="M413.759,388.118a7.308,7.308,0,0,0-10.135-.142,9.034,9.034,0,0,1,4.326,7.14h7.379c.291,0,.559-.123.559-.414v-1.48A7.213,7.213,0,0,0,413.759,388.118Z" transform="translate(-142.909 -60.188)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-    <path id="Path_228952" data-name="Path 228952" d="M344.129,335.5h0a3.749,3.749,0,0,0,0,7.5h0a3.749,3.749,0,0,0,0-7.5Z" transform="translate(-87.858 -16.212)" fill="none" stroke="#1f1f45" stroke-width="1.5"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="18.969" height="12" viewBox="0 0 18.969 12">
+  <path id="Icon_material-filter-list" data-name="Icon material-filter-list" d="M11.877,21h4.215V19H11.877ZM4.5,9v2H23.469V9Zm3.162,7H20.308V14H7.662Z" transform="translate(-4.5 -9)" fill="#0164ec"/>
 </svg>

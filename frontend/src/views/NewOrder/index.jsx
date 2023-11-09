@@ -56,7 +56,7 @@ export default function NewOrder() {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <StyledAccordion title={"Pickup & Delivery"}>
+                    <StyledAccordion title={"Pickup & Delivery"} defaultExpanded>
                         <PickupDetailsForm/>
                     </StyledAccordion>
                 </Grid>
@@ -69,7 +69,7 @@ export default function NewOrder() {
 
                 <Grid item xs={12}>
                     <StyledAccordion title={"Service & Detail"} rightElement={<ScanGarment/>} defaultExpanded>
-                        <div>Service & Detail</div>
+                        <div>Scan item bar codes...</div>
                     </StyledAccordion>
                 </Grid>
 

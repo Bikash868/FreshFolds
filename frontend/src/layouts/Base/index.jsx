@@ -63,7 +63,7 @@ export function BaseLayout(props) {
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
-                            Laundry Management Dashboard
+                            {`Employee > Dashboard`}
                         </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
