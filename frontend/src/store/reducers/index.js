@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 // import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 
 import UserReducer from './user';
+import ClothReducer from './cloth';
 
 //USED FOR PERSISTING A REDUCERS STATE USING LOCALFORAGE
 // const rootPersistConfig = {
@@ -26,6 +27,7 @@ import UserReducer from './user';
 const rootReducer = combineReducers({
 	// session: persistReducer(sessionPersistConfig, sessionReducer),
 	UserReducer,
+	ClothReducer
 });
 
 // export default persistReducer(rootPersistConfig, rootReducer);

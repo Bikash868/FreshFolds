@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { StyledAccordion } from '@components/Accordion';
 
+import { ServiceDetails } from './ServiceDetails';
 import { PickupDetailsForm } from './PickupDetails';
 import { BillingDetailsForm } from './BillingDetails';
 import { AddressDetailsForm } from './AddressDetails';
@@ -69,7 +70,7 @@ export default function NewOrder() {
 
                 <Grid item xs={12}>
                     <StyledAccordion title={"Service & Detail"} rightElement={<ScanGarment/>} defaultExpanded>
-                        <div>Scan item bar codes...</div>
+                        <ServiceDetails/>
                     </StyledAccordion>
                 </Grid>
 
