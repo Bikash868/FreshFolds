@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { StyledAccordion } from '@components/Accordion';
-import { useReactToPrint } from 'react-to-print';
+// import { useReactToPrint } from 'react-to-print';
 
 import { ServiceDetails } from './ServiceDetails';
 import { PickupDetailsForm } from './PickupDetails';
@@ -22,6 +22,9 @@ import { ReactComponent as ArrowForwardIcon } from '@assets/svg/arrow-round-forw
 import { StyledDialog } from '@components/Dialog';
 import { BillTemplate } from '@components/BillTemplate';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 export const ScanGarment = () => {
 	const handleClick = () => {};
@@ -68,9 +71,18 @@ export default function NewOrder() {
 		setIsPlacingOrder(true);
 	};
 
-	const handlePrint = useReactToPrint({
-		content: () => billRef.current,
-	});
+	// const handlePrint = useReactToPrint({
+	// 	content: () => billRef.current,
+	// });
+
+	const handlePrint = () => {
+		html2canvas(billRef.current).then((canvas) => {
+			const imgData = canvas.toDataURL("image/png");
+			const pdf = new jsPDF();
+			pdf.addImage(imgData, "JPEG", 0, 0);
+			pdf.save("invoice.pdf");
+		});
+	}
 
 	return (
 		<Container maxWidth={false}>
