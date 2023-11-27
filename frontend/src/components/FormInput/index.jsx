@@ -8,8 +8,8 @@ import { StyledSelect } from './elements';
 
 export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey }) {
 	const placeholders = {
-		Customer: 'Alex Marin',
-		Phone: '9304147313',
+		name: 'Alex Marin',
+		phone: '9304147313',
 		Flat: '49',
 		Apartment: 'Nadiya Paradise',
 		Pin: '560037',

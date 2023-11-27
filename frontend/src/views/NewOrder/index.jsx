@@ -124,7 +124,7 @@ export default function NewOrder() {
 					<div style={{ display: 'flex', marginLeft: 'auto', padding: '1rem', justifyContent: 'flex-end' }}>
 						<Button
 							startIcon={<ArrowForwardIcon />}
-							loading={isPlacingOrder}
+							loading={isPlacingOrder ? false: false}
 							variant={'contained'}
 							label={'Place Order'}
 							handleClick={placeOrder}

@@ -13,3 +13,10 @@ export const updatePrice = (params) => {
 		payload: params,
 	};
 };
+
+export const updateCustomer = (params) => {
+	return {
+		type: actionTypes.UPDATE_CUSTOMER_DETAILS,
+		payload: params
+	}
+}

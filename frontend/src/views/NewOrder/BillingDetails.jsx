@@ -3,7 +3,7 @@ import { FormInput } from '@components/FormInput';
 import { useSelector } from 'react-redux';
 
 export function BillingDetailsForm() {
-   const { price } = useSelector(state => state.ClothReducer)
+   const { price } = useSelector(state => state.OrderReducer)
 
     return (
         <form style={{display:'grid', gridTemplateColumns:'1fr 1fr', columnGap:'20'}}>

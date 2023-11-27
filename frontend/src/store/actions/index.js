@@ -1,2 +1,2 @@
-export * from './clothAction';
+export * from './orderAction';
 export * from './userAction';

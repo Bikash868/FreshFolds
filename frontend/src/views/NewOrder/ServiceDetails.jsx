@@ -19,7 +19,7 @@ const emptyClothItem = {
 
 export const ServiceDetails = () => {
   const dispatch = useDispatch();
-  let { clothList } = useSelector( state => state.ClothReducer);
+  let { clothList } = useSelector( state => state.OrderReducer);
 
   const addClothes = () => {
     const updatedClothList = [...clothList];

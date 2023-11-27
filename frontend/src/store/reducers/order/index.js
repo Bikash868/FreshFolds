@@ -11,13 +11,22 @@ export function getInitialState() {
             pickupCharge: 0,
             deliveryCharge: 0,
             total:0,
+        },
+        customer: {
+            name:'',
+            phone:'',
+            flat:'',
+            apartment:'',
+            pin:'',
+            country: 'India',
+            city:''
         }
     }
 
     return initialState;
 }
 
-const ClothReducer = (state = getInitialState(), action) => {
+const OrderReducer = (state = getInitialState(), action) => {
     const {payload} = action;
     try {
         switch(action.type) {
@@ -31,6 +40,11 @@ const ClothReducer = (state = getInitialState(), action) => {
                     ...state,
                     price: {...state.price,...payload}
                 }
+            case 'UPDATE_CUSTOMER_DETAILS':
+                return {
+                    ...state,
+                    customer: {...state.customer, ...payload}
+                }
             default:
                 return state;
         }
@@ -42,4 +56,4 @@ const ClothReducer = (state = getInitialState(), action) => {
     // })
 }
 
-export default ClothReducer;
+export default OrderReducer;
