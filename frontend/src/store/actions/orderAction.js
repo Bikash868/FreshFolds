@@ -20,3 +20,9 @@ export const updateCustomer = (params) => {
 		payload: params
 	}
 }
+
+export const resetOrderDetails = () => {
+	return {
+		type: actionTypes.RESET_ORDER,
+	}
+}

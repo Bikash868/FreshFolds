@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { Typography } from '@mui/material';
 import PropTypes, { oneOfType } from 'prop-types';
 
-export function Button ({loading, handleClick, label, startIcon, endIcon, variant, styleObj={} }) {
+export function Button ({loading, handleClick, label, startIcon, endIcon, variant, styleObj={}, disabled=false }) {
     return (
         <LoadingButton
           size="small"
@@ -14,6 +14,7 @@ export function Button ({loading, handleClick, label, startIcon, endIcon, varian
           loadingPosition={startIcon ? "start" : "end"}
           variant={variant}
           style={{textTransform: 'none',...styleObj}}
+          disabled={disabled}
         >
             <Typography>{label}</Typography>
         </LoadingButton>
@@ -28,5 +29,6 @@ Button.propTypes = {
     value: oneOfType([PropTypes.string, PropTypes.object]),
     label: PropTypes.string,
     variant:  PropTypes.string,
-    styleObj: PropTypes.object
+    styleObj: PropTypes.object,
+    disabled: PropTypes.bool
 }

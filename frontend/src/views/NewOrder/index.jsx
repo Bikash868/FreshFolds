@@ -1,6 +1,9 @@
 import React from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { resetOrderDetails } from '@store/actions';
 
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
@@ -59,6 +62,9 @@ PrintInvoice.propTypes = {
 
 export default function NewOrder() {
 	const billRef = useRef();
+	const dispatch = useDispatch();
+
+	const { clothList } = useSelector( state => state.OrderReducer);
 
 	const [openBill, setOpenBill] = useState(false);
 	const [orderSuccess, setOrderSuccess] = useState(false);
@@ -118,10 +124,11 @@ export default function NewOrder() {
 					<div style={{ display: 'flex', marginLeft: 'auto', padding: '1rem', justifyContent: 'flex-end' }}>
 						<Button
 							startIcon={<ArrowForwardIcon />}
-							loading={isPlacingOrder ? false: false}
+							loading={isPlacingOrder}
 							variant={'contained'}
 							label={'Place Order'}
 							handleClick={placeOrder}
+							disabled={clothList.length === 0}
 						/>
 					</div>
 				</Grid>
@@ -146,6 +153,7 @@ export default function NewOrder() {
 						setOpenBill(false);
 						setOrderSuccess(true);
 						setIsPlacingOrder(false);
+						dispatch(resetOrderDetails());
 					}}
 				>
 					Agree

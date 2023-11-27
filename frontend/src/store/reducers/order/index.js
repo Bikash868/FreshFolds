@@ -28,6 +28,7 @@ export function getInitialState() {
 
 const OrderReducer = (state = getInitialState(), action) => {
     const {payload} = action;
+    const initialState  = getInitialState();
     try {
         switch(action.type) {
             case 'UPDATE_CLOTH_LIST':
@@ -44,6 +45,10 @@ const OrderReducer = (state = getInitialState(), action) => {
                 return {
                     ...state,
                     customer: {...state.customer, ...payload}
+                }
+            case 'RESET_ORDER':
+                return {
+                    ...initialState
                 }
             default:
                 return state;
