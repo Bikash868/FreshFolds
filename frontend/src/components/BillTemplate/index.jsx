@@ -33,7 +33,7 @@ const BillTable = (props) => {
 	const { subTotal, taxAmount, total } = props.price;
 
 	function formatRows() {
-		const list = props.clothList.map((listItem) => createRow(listItem.name, listItem.quantity, 30));
+		const list = props.clothList.map((listItem) => createRow(listItem.name, listItem.quantity, listItem.unitPrice));
 		setRows(list);
 	}
 
