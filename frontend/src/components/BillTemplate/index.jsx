@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from '@assets/svg/logo.svg';
 import { useSelector } from 'react-redux';
 import { StyledTableCell } from './elements';
 import dayjs from "dayjs";
+import PropTypes from 'prop-types';
 
 const TAX_RATE = 0.09;
 
@@ -27,24 +28,18 @@ function createRow(desc, qty, unit) {
 }
 
 
-const BillTable = () => {
+const BillTable = (props) => {
 	const [rows, setRows] = React.useState([]);
-
-	const { clothList } = useSelector((state) => state.OrderReducer);
-	const { subTotal, taxAmount, total } = useSelector(state => state.OrderReducer.price);
+	const { subTotal, taxAmount, total } = props.price;
 
 	function formatRows() {
-		const list = clothList.map((listItem) => createRow(listItem.name, listItem.quantity, 30));
+		const list = props.clothList.map((listItem) => createRow(listItem.name, listItem.quantity, 30));
 		setRows(list);
 	}
 
 	React.useEffect(()=> {
 		formatRows();
-	},[ ]);
-
-	React.useEffect(()=> {
-		formatRows();
-	},[clothList]);
+	},[props]);
 
 	return (
 		<TableContainer component={Paper} sx={{ boxShadow: 'none', p: 2 }}>
@@ -92,7 +87,14 @@ const BillTable = () => {
 	);
 };
 
+BillTable.propTypes = {
+	clothList: PropTypes.object,
+	price: PropTypes.object
+}
+
 export const BillTemplate = React.forwardRef((props, ref) => {
+	const { clothList } = useSelector((state) => state.OrderReducer);
+	const { price } = useSelector(state => state.OrderReducer);
 	let { name, phone , flat, apartment, pin, country, city } = useSelector((state) => state.OrderReducer.customer);
 	
 	return (
@@ -157,7 +159,7 @@ export const BillTemplate = React.forwardRef((props, ref) => {
 				</div>
 			</div>
 
-			<BillTable />
+			<BillTable clothList={clothList} price={price}/>
 
 			<div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
 				<Typography align="left" fontSize={'0.65rem'} fontWeight={700}>

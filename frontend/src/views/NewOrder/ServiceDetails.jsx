@@ -28,12 +28,17 @@ export const ServiceDetails = () => {
   }
 
   const handleFormInput = (obj) => {
-    const {index,key,value} = obj;
+    const {index,key,value, unitPrice} = obj;
+
     let updatedClothList = clothList;
     updatedClothList[index][key] = value;
+
+    if(unitPrice) {
+      updatedClothList[index].unitPrice = unitPrice;
+    }
     
     if(updatedClothList[index].name && updatedClothList[index].quantity !==0) {
-      updatedClothList[index].price = updatedClothList[index].quantity * 30;
+      updatedClothList[index].price = updatedClothList[index].quantity * updatedClothList[index].unitPrice;
     }
 
     const subTotal = updatedClothList.reduce((acc,curr)=>{

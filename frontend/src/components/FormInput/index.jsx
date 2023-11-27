@@ -62,9 +62,9 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 				/>
 			)}
 			{type === 'dropDown' && (
-				<StyledSelect value={value} onChange={onChange} displayEmpty inputProps={{ 'aria-label': 'Without label' }} placeholder={placeholderKey}>
+				<StyledSelect value={value} displayEmpty inputProps={{ 'aria-label': 'Without label' }} placeholder={placeholderKey}>
 					{options.map((item) => (
-						<MenuItem value={item.value} key={item.value}>
+						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)} >
 							{item.label}
 						</MenuItem>
 					))}

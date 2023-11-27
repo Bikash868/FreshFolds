@@ -59,21 +59,15 @@ PrintInvoice.propTypes = {
 
 export default function NewOrder() {
 	const billRef = useRef();
-	// const [isBillVisible, setIsBillVisible] = useState(false);
 
 	const [openBill, setOpenBill] = useState(false);
 	const [orderSuccess, setOrderSuccess] = useState(false);
 	const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
 	const placeOrder = () => {
-		// openModal();
 		setOpenBill(true);
 		setIsPlacingOrder(true);
 	};
-
-	// const handlePrint = useReactToPrint({
-	// 	content: () => billRef.current,
-	// });
 
 	const handlePrint = () => {
 		html2canvas(billRef.current).then((canvas) => {

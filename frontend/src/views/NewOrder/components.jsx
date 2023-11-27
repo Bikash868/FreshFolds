@@ -1,25 +1,21 @@
 import { Grid } from "@mui/material";
 import { FormInput } from '@components/FormInput';
 import PropTypes from 'prop-types';
+import { Items } from '@data';
 
 export const NewItemRow = (props) => {
 
-    // const handleNameChange = (e) => {
-    //     console.log(props);
-    //     props.onChange({index:props.index, key:e.key, value:e.value})
-    // }
 
     const newItemObj = [
         {
             key: 'name',
-            type: 'textField',
-            // onChange: handleNameChange,
-            placeholderKey: 'Name'
+            type: 'dropDown',
+            placeholderKey: 'Name',
+            options: Items.sort((a, b) => a.label.localeCompare(b.label))
         },
         {
             key: 'quantity',
             type: 'dropDown',
-            // onChange: handleNameChange,
             placeholderKey: 'Quantity',
             options: [ ...Array(10).keys() ].map( i => ({
                 'label': i+1,
@@ -29,13 +25,11 @@ export const NewItemRow = (props) => {
         {
             key: 'price',
             type: 'textField',
-            // onChange: handleNameChange,
             placeholderKey: 'Price'
         },
         {
             key: 'details',
             type: 'textField',
-            // onChange: handleNameChange,
             placeholderKey: 'Details'
         }
     ]
@@ -45,7 +39,7 @@ export const NewItemRow = (props) => {
         {
             newItemObj.map((item) => (
                 <Grid item xs={3} key={item.key}>
-                    <FormInput title={''} mandatory type={item.type} onChange={(e) =>props.onChange({index:props.index,key:item.key,value:e.target.value})} placeholderKey={item.placeholderKey} {...item} value={props[item.key]}/>
+                    <FormInput title={''} mandatory type={item.type} onChange={(obj) => props.onChange({index:props.index,key:item.key,...obj})} placeholderKey={item.placeholderKey} {...item} value={props[item.key]}/>
                 </Grid>
             ))   
         }
