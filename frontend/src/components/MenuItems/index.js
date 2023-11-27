@@ -11,14 +11,14 @@ export const primaryMenuItems = [{
   "route": '/dashboard'
 },
 {
-  "label": "Customers",
-  "icon": <PeopleIcon />,
-  "route": '/customers'
-},
-{
   "label": "Orders",
   "icon": <ShoppingCartIcon />,
   "route": '/new-order'
+},
+{
+  "label": "Customers",
+  "icon": <PeopleIcon />,
+  "route": '/customers'
 },
 {
   "label": "Filter",
