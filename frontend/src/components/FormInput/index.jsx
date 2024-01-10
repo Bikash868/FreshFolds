@@ -1,9 +1,11 @@
 import React from 'react';
-// import { ReactComponent as RoundedCancelIcon } from "@assets/svg/rounded-cance";
+import dayjs from 'dayjs';
 import PropTypes, { oneOfType } from 'prop-types';
 
-// import { Box, Typography } from "@mui/material";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { FormControl, FormLabel, MenuItem, TextField } from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { StyledSelect } from './elements';
 
 export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey }) {
@@ -24,7 +26,7 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 		Delivery: 'Store',
 		blank: '',
 	};
-    
+
 	return (
 		<FormControl
 			fullWidth
@@ -62,13 +64,29 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 				/>
 			)}
 			{type === 'dropDown' && (
-				<StyledSelect value={value} displayEmpty inputProps={{ 'aria-label': 'Without label' }} placeholder={placeholderKey}>
+				<StyledSelect
+					value={value}
+					displayEmpty
+					inputProps={{ 'aria-label': 'Without label' }}
+					placeholder={placeholderKey}
+				>
 					{options.map((item) => (
-						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)} >
+						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)}>
 							{item.label}
 						</MenuItem>
 					))}
 				</StyledSelect>
+			)}
+			{type === 'date' && (
+				<div style={{ width: '15rem', height: '2.65rem' }}>
+					<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DatePicker
+							defaultValue={dayjs(new Date())}
+							slotProps={{ textField: { size: 'small' } }}
+							onChange={onChange}
+						/>
+					</LocalizationProvider>
+				</div>
 			)}
 		</FormControl>
 	);
