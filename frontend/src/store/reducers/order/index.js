@@ -4,6 +4,8 @@ export function getInitialState() {
 	const initialState = {
 		clothList: [],
 		price: {
+			normalWash:0,
+			dryClean: 0,
 			subTotal: 0,
 			taxAmount: 0,
 			pickupCharge: 0,

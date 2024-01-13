@@ -8,7 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { StyledSelect } from './elements';
 
-export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey }) {
+export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey, defaultValue }) {
 	const placeholders = {
 		name: 'Alex Marin',
 		phone: '9304147313',
@@ -60,7 +60,7 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 					value={value}
 					color="grey"
 					size="small"
-					style={{ width: '15rem', background: '#EFF2F7 0% 0% no-repeat padding-box' }}
+					style={{ width: '100%', background: '#EFF2F7 0% 0% no-repeat padding-box' }}
 				/>
 			)}
 			{type === 'dropDown' && (
@@ -69,6 +69,7 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 					displayEmpty
 					inputProps={{ 'aria-label': 'Without label' }}
 					placeholder={placeholderKey}
+					defaultValue={defaultValue}
 				>
 					{options.map((item) => (
 						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)}>
@@ -101,4 +102,5 @@ FormInput.propTypes = {
 	options: PropTypes.array,
 	type: PropTypes.string,
 	placeholderKey: PropTypes.string,
+	defaultValue: PropTypes.any
 };
