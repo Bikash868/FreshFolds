@@ -38,10 +38,10 @@ const configureStore = (initialState) => {
 	const sagaMiddleware = createSagaMiddleware();
 	middlewares.push(sagaMiddleware);
 
-	const middlewareEnhancer = composeWithDevTools(applyMiddleware(...middlewares));
-	const enhancers = [middlewareEnhancer];
-	const composedEnhancers = compose(...enhancers);
-	const store = createStore(rootReducer, initialState, composedEnhancers);
+	// const middlewareEnhancer = composeWithDevTools(applyMiddleware(...middlewares));
+	// const enhancers = [middlewareEnhancer];
+	// const composedEnhancers = compose(...enhancers);
+	const store = createStore(rootReducer, initialState, middlewares);
 
 	function* rootSaga() {
 		yield all([
