@@ -9,7 +9,7 @@ import { Typography } from '@mui/material';
 import { ReactComponent as Logo } from '@assets/svg/logo.svg';
 import { useSelector } from 'react-redux';
 import { StyledTableCell } from './elements';
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 
 const TAX_RATE = 0.09;
@@ -27,19 +27,18 @@ function createRow(desc, qty, unit) {
 	return { desc, qty, unit, price };
 }
 
-
 const BillTable = (props) => {
 	const [rows, setRows] = React.useState([]);
-	const { subTotal, taxAmount, total } = props.price;
+	const { subTotal = 0, taxAmount = 0, total = 0 } = props.price;
 
 	function formatRows() {
 		const list = props.clothList.map((listItem) => createRow(listItem.name, listItem.quantity, listItem.unitPrice));
 		setRows(list);
 	}
 
-	React.useEffect(()=> {
+	React.useEffect(() => {
 		formatRows();
-	},[props]);
+	}, [props]);
 
 	return (
 		<TableContainer component={Paper} sx={{ boxShadow: 'none', p: 2 }}>
@@ -52,7 +51,7 @@ const BillTable = (props) => {
 						<StyledTableCell align="right">Price</StyledTableCell>
 					</TableRow>
 					<TableRow>
-						<StyledTableCell >Desc</StyledTableCell>
+						<StyledTableCell>Desc</StyledTableCell>
 						<StyledTableCell align="right">Qty.</StyledTableCell>
 						<StyledTableCell align="right">Unit</StyledTableCell>
 						<StyledTableCell align="right">Sum</StyledTableCell>
@@ -89,14 +88,13 @@ const BillTable = (props) => {
 
 BillTable.propTypes = {
 	clothList: PropTypes.object,
-	price: PropTypes.object
-}
+	price: PropTypes.object,
+};
 
 export const BillTemplate = React.forwardRef((props, ref) => {
-	const { clothList } = useSelector((state) => state.OrderReducer);
-	const { price } = useSelector(state => state.OrderReducer);
-	let { name, phone , flat, apartment, pin, country, city } = useSelector((state) => state.OrderReducer.customer);
-	
+	const { clothList, price } = props;
+	let { name, phone, flat, apartment, pin, country, city } = useSelector((state) => state.OrderReducer.customer);
+
 	return (
 		<div ref={ref} style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: 1 }}>
 			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -142,7 +140,7 @@ export const BillTemplate = React.forwardRef((props, ref) => {
 						+91 - 9898432323
 					</Typography>
 					<Typography align="left" fontSize={'0.65rem'}>
-						WZ-878 NARAINA VILLAGE, N.D.-28 
+						WZ-878 NARAINA VILLAGE, N.D.-28
 					</Typography>
 				</div>
 
@@ -159,7 +157,7 @@ export const BillTemplate = React.forwardRef((props, ref) => {
 				</div>
 			</div>
 
-			<BillTable clothList={clothList} price={price}/>
+			<BillTable clothList={clothList} price={price} />
 
 			<div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
 				<Typography align="left" fontSize={'0.65rem'} fontWeight={700}>
@@ -175,3 +173,17 @@ export const BillTemplate = React.forwardRef((props, ref) => {
 		</div>
 	);
 });
+
+BillTemplate.propTypes = {
+	clothList: PropTypes.object,
+	price: PropTypes.object,
+};
+
+BillTemplate.defaultProps = {
+	clothList: [],
+	price: {
+		subTotal: 0,
+		taxAmount: 0,
+		total: 0,
+	},
+};

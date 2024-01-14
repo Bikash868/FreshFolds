@@ -1,12 +1,14 @@
 import React from 'react';
-// import { ReactComponent as RoundedCancelIcon } from "@assets/svg/rounded-cance";
+import dayjs from 'dayjs';
 import PropTypes, { oneOfType } from 'prop-types';
 
-// import { Box, Typography } from "@mui/material";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { FormControl, FormLabel, MenuItem, TextField } from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { StyledSelect } from './elements';
 
-export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey }) {
+export function FormInput({ title, mandatory, onChange, options, value, type, placeholderKey, defaultValue }) {
 	const placeholders = {
 		name: 'Alex Marin',
 		phone: '9304147313',
@@ -24,7 +26,7 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 		Delivery: 'Store',
 		blank: '',
 	};
-    
+
 	return (
 		<FormControl
 			fullWidth
@@ -58,17 +60,34 @@ export function FormInput({ title, mandatory, onChange, options, value, type, pl
 					value={value}
 					color="grey"
 					size="small"
-					style={{ width: '15rem', background: '#EFF2F7 0% 0% no-repeat padding-box' }}
+					style={{ width: '100%', background: '#EFF2F7 0% 0% no-repeat padding-box' }}
 				/>
 			)}
 			{type === 'dropDown' && (
-				<StyledSelect value={value} displayEmpty inputProps={{ 'aria-label': 'Without label' }} placeholder={placeholderKey}>
+				<StyledSelect
+					value={value}
+					displayEmpty
+					inputProps={{ 'aria-label': 'Without label' }}
+					placeholder={placeholderKey}
+					defaultValue={defaultValue}
+				>
 					{options.map((item) => (
-						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)} >
+						<MenuItem value={item.value} key={item.value} {...item} onClick={() => onChange(item)}>
 							{item.label}
 						</MenuItem>
 					))}
 				</StyledSelect>
+			)}
+			{type === 'date' && (
+				<div style={{ width: '15rem', height: '2.65rem' }}>
+					<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DatePicker
+							defaultValue={dayjs(new Date())}
+							slotProps={{ textField: { size: 'small' } }}
+							onChange={onChange}
+						/>
+					</LocalizationProvider>
+				</div>
 			)}
 		</FormControl>
 	);
@@ -83,4 +102,5 @@ FormInput.propTypes = {
 	options: PropTypes.array,
 	type: PropTypes.string,
 	placeholderKey: PropTypes.string,
+	defaultValue: PropTypes.any
 };
