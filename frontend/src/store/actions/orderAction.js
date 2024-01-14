@@ -17,12 +17,26 @@ export const updatePrice = (params) => {
 export const updateCustomer = (params) => {
 	return {
 		type: actionTypes.UPDATE_CUSTOMER_DETAILS,
-		payload: params
-	}
-}
+		payload: params,
+	};
+};
 
 export const resetOrderDetails = () => {
 	return {
 		type: actionTypes.RESET_ORDER,
-	}
-}
+	};
+};
+
+export const updateOrderDate = (params) => {
+	return {
+		type: actionTypes.UPDATE_ORDER_DATE,
+		payload: params,
+	};
+};
+
+export const updateDeliveryDate = (params) => {
+	return {
+		type: actionTypes.UPDATE_DELIVERY_DATE,
+		payload: params,
+	};
+};

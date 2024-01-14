@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { resetOrderDetails } from '@store/actions';
@@ -26,8 +27,8 @@ import { StyledDialog } from '@components/Dialog';
 import { BillTemplate } from '@components/BillTemplate';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const ScanGarment = () => {
 	const handleClick = () => {};
@@ -61,14 +62,20 @@ PrintInvoice.propTypes = {
 };
 
 export default function NewOrder() {
-	const billRef = useRef();
+	const dryCleanbillRef = useRef();
+	const normalWashBillRef = useRef();
+
 	const dispatch = useDispatch();
 
-	const { clothList } = useSelector( state => state.OrderReducer);
+	const { clothList } = useSelector((state) => state.OrderReducer);
+	const { price } = useSelector((state) => state.OrderReducer);
+	const { dryClean, normalWash } = price;
 
 	const [openBill, setOpenBill] = useState(false);
 	const [orderSuccess, setOrderSuccess] = useState(false);
 	const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+	const [dryCleanItems, setDryCleanItems] = useState({ clothList: [] });
+	const [normalWashItems, setNormalWashItems] = useState({ clothList: [] });
 
 	const placeOrder = () => {
 		setOpenBill(true);
@@ -76,13 +83,47 @@ export default function NewOrder() {
 	};
 
 	const handlePrint = () => {
-		html2canvas(billRef.current).then((canvas) => {
-			const imgData = canvas.toDataURL("image/png");
-			const pdf = new jsPDF();
-			pdf.addImage(imgData, "JPEG", 0, 0);
-			pdf.save("invoice.pdf");
+		if (normalWashBillRef.current) {
+			html2canvas(normalWashBillRef.current).then((canvas) => {
+				const imgData = canvas.toDataURL('image/png');
+				const pdf = new jsPDF();
+				pdf.addImage(imgData, 'JPEG', 0, 0);
+				pdf.save('NormalWash_invoice.pdf');
+			});
+		}
+
+		if (dryCleanbillRef.current) {
+			html2canvas(dryCleanbillRef.current).then((canvas) => {
+				const imgData = canvas.toDataURL('image/png');
+				const pdf = new jsPDF();
+				pdf.addImage(imgData, 'JPEG', 0, 0);
+				pdf.save('DryClean_invoice.pdf');
+			});
+		}
+	};
+
+	useEffect(() => {
+		const clothsForDryClean = clothList.filter((d) => d?.serviceType === 'dryClean');
+		const clothsForNormalWash = clothList.filter((d) => d?.serviceType !== 'dryClean');
+
+		setDryCleanItems({
+			price: {
+				subTotal: dryClean,
+				taxAmount: dryClean * 0.9,
+				total: dryClean * 1.9,
+			},
+			clothList: clothsForDryClean,
 		});
-	}
+
+		setNormalWashItems({
+			price: {
+				subTotal: normalWash,
+				taxAmount: normalWash * 0.9,
+				total: normalWash * 1.9,
+			},
+			clothList: clothsForNormalWash,
+		});
+	}, [clothList]);
 
 	return (
 		<Container maxWidth={false}>
@@ -144,9 +185,16 @@ export default function NewOrder() {
 			</StyledDialog>
 
 			<StyledDialog open={openBill} onClose={() => setOpenBill(false)}>
-				<div ref={billRef}>
-					<BillTemplate />
-				</div>
+				<Grid container gap={2}>
+					{dryCleanItems.clothList.length && (
+						<Grid item ref={dryCleanbillRef}>
+							<BillTemplate {...dryCleanItems} />
+						</Grid>
+					)}
+					<Grid item ref={normalWashBillRef}>
+						<BillTemplate {...normalWashItems} />
+					</Grid>
+				</Grid>
 				<button
 					onClick={() => {
 						handlePrint();
