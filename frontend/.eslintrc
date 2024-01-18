@@ -1,55 +1,53 @@
 {
-    "root": false,
-    "plugins": [
-        // "prettier",
-        "react",
-        "react-hooks"
-        // "only-warn"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        // "plugin:prettier/recommended"
-    ],
-    "env": {
-        "es6": true,
-        "node": true,
-        "jest": true,
-        "browser": true
-    },
-    "parserOptions": {
-        "parser": "@babel/eslint-parser",
-        "ecmaVersion": 2022,
-        "sourceType": "module",
-        "requireConfigFile": false,
-        "jsx": true,
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "babelOptions": {
-            "babelrc": false,
-            "configFile": false,
-            // your babel options
-            "presets": [
-                "@babel/preset-react"
-            ]
-        }
-    },
-    "ignorePatterns": [
-        "node_modules",
-        "build",
-        "dist",
-        "public"
-    ],
-    "rules": {
-        "eqeqeq": "warn",
-        "no-eval": "warn",
-        "no-console": "warn",
-        // "prettier/prettier": "warn",
-        "react/display-name": "off",
-        "react/no-children-props": "off",
-        "react/react-in-jsx-scope": "off",
-        "react-hooks/rules-of-hooks": "warn",
-        "react-hooks/exhaustive-deps": "warn"
-    }
+	"root": false,
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"plugins": [
+		// "prettier",
+		"react",
+		"react-hooks"
+		// "only-warn"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+		// "plugin:prettier/recommended"
+	],
+	"env": {
+		"es6": true,
+		"node": true,
+		"jest": true,
+		"browser": true
+	},
+	"parserOptions": {
+		"parser": "@babel/eslint-parser",
+		"ecmaVersion": 2022,
+		"sourceType": "module",
+		"requireConfigFile": false,
+		"jsx": true,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"babelOptions": {
+			"babelrc": false,
+			"configFile": false,
+			// your babel options
+			"presets": ["@babel/preset-react"]
+		}
+	},
+	"ignorePatterns": ["node_modules", "build", "dist", "public"],
+	"rules": {
+		"eqeqeq": "warn",
+		"no-eval": "warn",
+		"no-console": "warn",
+		// "prettier/prettier": "warn",
+		"react/display-name": "off",
+		"react/no-children-props": "off",
+		"react/react-in-jsx-scope": "off",
+		"react-hooks/rules-of-hooks": "warn",
+		"react-hooks/exhaustive-deps": "warn"
+	}
 }

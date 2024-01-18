@@ -1,5 +1,6 @@
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createStore, applyMiddleware, compose } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { userSaga } from '@store/sagas/user.saga';
 import { persistStore } from 'redux-persist';
