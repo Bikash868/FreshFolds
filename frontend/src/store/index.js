@@ -1,59 +1,16 @@
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import { createStore, applyMiddleware, compose } from 'redux';
-import { createStore} from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { userSaga } from '@store/sagas/user.saga';
-import { persistStore } from 'redux-persist';
-import { all } from 'redux-saga/effects';
+import rootSaga from './sagas';
 import rootReducer from '@store/reducers';
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from '@redux-saga/core';
 
-export let persistor = '';
+const sagaMiddleware = createSagaMiddleware();
 
-const asyncDispatchMiddleware = (store) => (next) => (action) => {
-	let syncActivityFinished = false;
-	let actionQueue = [];
+const store = configureStore({
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
+});
 
-	function flushQueue() {
-		actionQueue.forEach((a) => store.dispatch(a)); // flush queue
-		actionQueue = [];
-	}
+// Added line
+sagaMiddleware.run(rootSaga);
 
-	function asyncDispatch(asyncAction) {
-		actionQueue = actionQueue.concat([asyncAction]);
-
-		if (syncActivityFinished) {
-			flushQueue();
-		}
-	}
-
-	const actionWithAsyncDispatch = Object.assign({}, action, { asyncDispatch });
-
-	next(actionWithAsyncDispatch);
-	syncActivityFinished = true;
-	flushQueue();
-};
-
-const configureStore = (initialState) => {
-	const middlewares = [asyncDispatchMiddleware];
-
-	const sagaMiddleware = createSagaMiddleware();
-	middlewares.push(sagaMiddleware);
-
-	// const middlewareEnhancer = composeWithDevTools(applyMiddleware(...middlewares));
-	// const enhancers = [middlewareEnhancer];
-	// const composedEnhancers = compose(...enhancers);
-	const store = createStore(rootReducer, initialState, middlewares);
-
-	function* rootSaga() {
-		yield all([
-			userSaga()
-		]);
-	}
-
-	sagaMiddleware.run(rootSaga);
-	persistor = persistStore(store);
-	return store;
-};
-
-const store = configureStore();
 export default store;
