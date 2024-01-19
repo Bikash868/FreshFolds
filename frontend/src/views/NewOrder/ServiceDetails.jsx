@@ -26,7 +26,7 @@ export const ServiceDetails = () => {
 	let { clothList } = useSelector((state) => state.OrderReducer);
 
 	const addClothes = () => {
-		const updatedClothList = [...clothList];
+		const updatedClothList = JSON.parse(JSON.stringify(clothList));
 		updatedClothList.push({ ...emptyClothItem });
 		dispatch(updateCloths(updatedClothList));
 	};
@@ -34,7 +34,7 @@ export const ServiceDetails = () => {
 	const handleFormInput = (obj) => {
 		const { index, key, value, unitPrice, dryClean } = obj;
 
-		let updatedClothList = clothList;
+		let updatedClothList = JSON.parse(JSON.stringify(clothList));
 		updatedClothList[index][key] = value;
 
 		if (unitPrice) {

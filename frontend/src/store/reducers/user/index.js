@@ -1,29 +1,22 @@
-import produce from 'immer';
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-	user: {
-		name: '',
-		email: '',
-	},
-};
+const usersInitialState = {
+  user: {
+    name: '',
+	email: ''
+  }
+}
 
-const UserReducer = (state = initialState, action) => {
-	return produce(state, (draft) => {
-		try {
-			switch (action.type) {
-				case 'SET_USER':
-					draft.user = {
-						...state.user,
-					};
-					break;
-				default:
-					break;
-			}
-		} catch (err) {
-			// console.error(err);
-			
-		}
-	});
-};
+export const usersSlice = createSlice({
+  name:'user',
+  initialState: usersInitialState,
+  reducers: {
+    setUser: (state, { payload: user }) => {
+      state.user.isLoading = false;
+      state.user = user;
+    },
+  }
+})
 
-export default UserReducer;
+export const { setUser } = usersSlice.actions;
+export default usersSlice.reducer;
