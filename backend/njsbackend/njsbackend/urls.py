@@ -22,6 +22,9 @@ from order.views import *
 urlpatterns = [
     path('',home, name="home"),
     path('order_per_day/',order_per_day, name="order_per_day"),
+    path('customers/',get_order_customer, name="get_order_customer" ),
+    path('customers/<str:id>/', get_customer_by_id, name="get_customer_by_id"),
+    path('filter/', get_customer_by_slug, name="get_customer_by_slug"),
 
     path('admin/', admin.site.urls),
 ]
