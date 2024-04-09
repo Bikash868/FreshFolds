@@ -1,90 +1,130 @@
 import * as React from 'react';
 
-// import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-// import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-
-// import { Copyright } from '@components/Copyright';
+import { BarChart } from '@charts/Bar';
+import { CardChart } from '@charts/Card';
+import { PieChart } from '@charts/Pie';
+import { DoughnutChart } from '@charts/Doughnut';
 
 export default function Dashboard() {
-    return (
-        <Container sx={{ mt: 4, overflow: 'auto' }}>
-            <Grid container spacing={3}>
-                {/* Chart */}
-                <Grid item xs={12} md={8} lg={9}>
-                    <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
-                    >
-                        {/* <Chart /> */}
-                        Here goes chart
-                    </Paper>
-                </Grid>
-                {/* Recent Deposits */}
-                <Grid item xs={12} md={4} lg={3}>
-                    <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
-                    >
-                        {/* <Deposits /> */}
-                        Deposits
-                    </Paper>
-                </Grid>
-                {/* Recent Orders */}
-                <Grid item xs={12}>
-                    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                        {/* <Orders /> */}
-                        Orders
-                    </Paper>
-                </Grid>
-            </Grid>
-            <Grid container spacing={3}>
-                {/* Chart */}
-                <Grid item xs={12} md={8} lg={9}>
-                    <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
-                    >
-                        {/* <Chart /> */}
-                        Here goes chart
-                    </Paper>
-                </Grid>
-                {/* Recent Deposits */}
-                <Grid item xs={12} md={4} lg={3}>
-                    <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
-                    >
-                        {/* <Deposits /> */}
-                        Deposits
-                    </Paper>
-                </Grid>
-                {/* Recent Orders */}
-                <Grid item xs={12}>
-                    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                        {/* <Orders /> */}
-                        Orders
-                    </Paper>
-                </Grid>
-            </Grid>
-        </Container>
-    );
+	return (
+		<Container sx={{ mt: 4, overflow: 'auto' }}>
+			<Grid container spacing={1}>
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+						}}
+					>
+						<CardChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+						}}
+					>
+						<CardChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+						}}
+					>
+						<CardChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+						}}
+					>
+						<CardChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={6}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+							// height: 280,
+						}}
+					>
+						<BarChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+							height: 300,
+						}}
+					>
+						<PieChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={3}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+							height: 300,
+						}}
+					>
+						<DoughnutChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={6}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+							// height: 240,
+						}}
+					>
+						<BarChart />
+					</Paper>
+				</Grid>
+
+				<Grid item xs={6}>
+					<Paper
+						sx={{
+							p: 2,
+							display: 'flex',
+							flexDirection: 'column',
+							// height: 240,
+						}}
+					>
+						<BarChart />
+					</Paper>
+				</Grid>
+			</Grid>
+		</Container>
+	);
 }

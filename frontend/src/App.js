@@ -9,7 +9,16 @@ import { Routes } from '@router';
 import store from '@store';
 import theme from './theme';
 
-// const state = store.getState();
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+	ArcElement
+  } from 'chart.js';
 
 function App() {
   return (
@@ -24,3 +33,13 @@ function App() {
 }
 
 export default App;
+
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+	ArcElement
+  );
