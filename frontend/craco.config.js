@@ -52,6 +52,7 @@ module.exports = {
 			'@assets': path.resolve(__dirname, 'src/assets'),
 			// '@lib': path.resolve(__dirname, 'src/lib'),
 			'@data': path.resolve(__dirname,'src/data'),
+			'@charts': path.resolve(__dirname,'src/charts')
 		},
 	},
 };
