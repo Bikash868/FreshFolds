@@ -11,3 +11,9 @@ Product Description:
 - Receipt downloads and providing monthly financial summaries
 
 
+Deployment: https://njs-p6z639wki-bikashs-projects-50f49627.vercel.app/dashboard
+
+Note: The deployment might not be the most recent one. To view the most recent build, please contact devbikash.1999@gmail.com.
+
+
+
