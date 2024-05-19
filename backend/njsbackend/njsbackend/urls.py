@@ -26,5 +26,7 @@ urlpatterns = [
     path('customers/<str:id>/', get_customer_by_id, name="get_customer_by_id"),
     path('filter/', get_customer_by_slug, name="get_customer_by_slug"),
 
+    path ('add-customer/', add_new_customer, name="add_new_customer"),
+
     path('admin/', admin.site.urls),
 ]

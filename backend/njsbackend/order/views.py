@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from order.models import *
+
 
 # Create your views here.
 
@@ -72,5 +75,25 @@ def get_customer_by_slug(request):
     return JsonResponse(customer_details, status = 200, safe=False)
 
 
+@api_view(['POST'])
+def add_new_customer(request):
+    first_name=request.data.get('first_name')
+    last_name=request.data.get('last_name')
+    email=request.data.get('email')
+    phone_number=request.data.get('phone_number')
+    address=request.data.get('address')
+    print("addded new user:",first_name)
+
+    customer = Customer(first_name=first_name,last_name=last_name, email=email, phone_number=phone_number, address=address)
+    customer.save()
+
+    success_message = {"status": "SUCCESS"}
+    return JsonResponse(success_message)
 
 #view that returns chart data for the dashboard
+
+
+
+
+
+
