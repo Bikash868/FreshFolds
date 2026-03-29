@@ -72,5 +72,4 @@ def get_customer_by_slug(request):
     return JsonResponse(customer_details, status = 200, safe=False)
 
 
-
 #view that returns chart data for the dashboard

@@ -7,7 +7,10 @@ import { BarChart } from '@charts/Bar';
 import { CardChart } from '@charts/Card';
 import { PieChart } from '@charts/Pie';
 import { DoughnutChart } from '@charts/Doughnut';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 export default function Dashboard() {
 	return (
 		<Container sx={{ mt: 4, overflow: 'auto' }}>
@@ -20,7 +23,7 @@ export default function Dashboard() {
 							flexDirection: 'column',
 						}}
 					>
-						<CardChart />
+						<CardChart title="Order received" value={36} icon={<ShoppingCartIcon/>}/>
 					</Paper>
 				</Grid>
 
@@ -32,7 +35,7 @@ export default function Dashboard() {
 							flexDirection: 'column',
 						}}
 					>
-						<CardChart />
+						<CardChart title="Order delivered" value={12} icon={<LocalShippingIcon/>}/>
 					</Paper>
 				</Grid>
 
@@ -44,7 +47,7 @@ export default function Dashboard() {
 							flexDirection: 'column',
 						}}
 					>
-						<CardChart />
+						<CardChart title="Order cancelled" value={12} icon={<CancelIcon/>}/>
 					</Paper>
 				</Grid>
 
@@ -56,7 +59,7 @@ export default function Dashboard() {
 							flexDirection: 'column',
 						}}
 					>
-						<CardChart />
+						<CardChart title="Order completed" value={12} icon={<CheckCircleIcon/>}/>
 					</Paper>
 				</Grid>
 

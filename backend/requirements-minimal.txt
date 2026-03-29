@@ -1,0 +1,8 @@
+# Core Django Framework
+Django==5.0.3
+
+# CORS handling for React frontend
+django-cors-headers==4.3.1
+
+# Environment variables (recommended)
+python-decouple==3.8 
